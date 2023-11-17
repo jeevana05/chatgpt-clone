@@ -2,9 +2,12 @@ import './App.css';
 import addBtn from './assets/add-30.png';
 import saved from './assets/bookmark.svg';
 import logo from './assets/chatgpt.svg';
+import gptImg from './assets/chatgptLogo.svg';
 import home from './assets/home.svg';
 import msgIcon from './assets/message.svg';
 import rocket from './assets/rocket.svg';
+import sendBtn from './assets/send.svg';
+import userIcon from './assets/user-icon.png';
 
 function App() {
   return (
@@ -24,7 +27,22 @@ function App() {
           <div className="lisItems"><img src={rocket} alt="Pro" className="listitemsImg" />Pro</div>
         </div>
       </div>
-      <div className='main'></div>
+      <div className='main'>
+        <div className="chats">
+          <div className="chat">
+            <img className='chatImg' src={userIcon} alt="" /><p className="txt">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Deserunt quo odit impedit nisi beatae dicta veritatis laboriosam itaque error fuga!</p>
+          </div>
+          <div className="chat bot">
+          <img className='chatImg' src={gptImg} alt="" /><p className="txt">Lorem ipsum dolor sit amet consectetur adipisicing elit. Dignissimos quia, adipisci recusandae, beatae qui sequi quas dolores fugiat eum similique voluptatem neque culpa suscipit ut explicabo. Eveniet necessitatibus accusamus ducimus corporis hic cumque, beatae amet, nulla repellat ipsum inventore, tenetur dolores esse dolore laboriosam ad enim maxime ipsa expedita deleniti ab possimus voluptatum totam obcaecati! Necessitatibus rerum ad, cumque iure a, illum ducimus dignissimos enim harum inventore accusantium sequi eum asperiores assumenda commodi repellat? Eaque quod exercitationem, accusamus nesciunt quibusdam repudiandae aut illum voluptates dolores cupiditate, consequuntur animi eligendi a deleniti neque, ex corporis officia veritatis architecto temporibus unde odit?</p>
+          </div>
+        </div>
+        <div className="chatFooter">
+          <div className="inp">
+            <input type="text" placeholder='Send a Message' /><button className="send"><img src={sendBtn} alt="Send" /></button>
+          </div>
+          <p>ChatGPT Clone</p>
+        </div>
+      </div>
     </div>
 
   );
