@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import './App.css';
 import addBtn from './assets/add-30.png';
 import saved from './assets/bookmark.svg';
@@ -8,8 +9,23 @@ import msgIcon from './assets/message.svg';
 import rocket from './assets/rocket.svg';
 import sendBtn from './assets/send.svg';
 import userIcon from './assets/user-icon.png';
+import { sendingToOpenAi } from './openai';
+
+
 
 function App() {
+  const [input, setInput] = useState("");
+  const [messages, setMessages]  = useState([]);
+  const handleSend = async () =>{
+    const res = await sendingToOpenAi(input);
+    setMessages([
+      ...messages,
+      {text:input, isUser:true},
+      {text:res, isUser:false },
+    ]);
+    setInput("");
+    console.log(res);
+  }
   return (
     <div className="App">
       <div className='sideBar'>
@@ -38,7 +54,7 @@ function App() {
         </div>
         <div className="chatFooter">
           <div className="inp">
-            <input type="text" placeholder='Send a Message' /><button className="send"><img src={sendBtn} alt="Send" /></button>
+            <input type="text" placeholder='Send a Message' value={input} onChange={(e)=>setInput(e.target.value)} /><button className="send" onClick={handleSend}><img src={sendBtn} alt="Send" /></button>
           </div>
           <p>ChatGPT Clone</p>
         </div>
